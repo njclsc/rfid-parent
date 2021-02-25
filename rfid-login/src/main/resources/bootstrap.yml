@@ -14,5 +14,5 @@ spring:
         namespace: 9c058d1c-8846-486e-aa6c-1bcc6f17677d
         file-extension: yaml
         server-addr: 192.168.3.223:8848
-        shared-dataids: data-source-druid.yaml
-        refreshable-dataids: data-source-druid.yaml
+        shared-dataids: data-source-druid.yaml,data-source-redis.yaml
+        refreshable-dataids: data-source-druid.yaml,data-source-redis.yaml
