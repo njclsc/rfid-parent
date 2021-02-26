@@ -8,11 +8,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        namespace: ffcc2fd0-1368-4894-a0a4-ebc867721e7e
-        server-addr: 192.168.4.109:8848
+        namespace: 9c058d1c-8846-486e-aa6c-1bcc6f17677d
+        server-addr: 192.168.3.223:8848
       config:
-        namespace: ffcc2fd0-1368-4894-a0a4-ebc867721e7e
+        namespace: 9c058d1c-8846-486e-aa6c-1bcc6f17677d
         file-extension: yaml
-        server-addr: 192.168.4.109:8848
+        server-addr: 192.168.3.223:8848
         shared-dataids: data-source-druid.yaml,data-source-redis.yaml
         refreshable-dataids: data-source-druid.yaml,data-source-redis.yaml

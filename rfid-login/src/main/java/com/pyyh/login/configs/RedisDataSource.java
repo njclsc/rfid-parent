@@ -31,7 +31,6 @@ public class RedisDataSource {
 	private String testWhileIdle;
 	@Value("${redis.pool.numTestsPerEvictionRun}")
 	private String numTestsPerEvictionRun;
-	private JedisPool pool;
 	@Bean(name = "redisSource")
 	public JedisPool initRedisSource(){
 		JedisPoolConfig config = new JedisPoolConfig();
@@ -44,7 +43,7 @@ public class RedisDataSource {
     	config.setTimeBetweenEvictionRunsMillis(Long.parseLong(timeBetweenEvictionRunsMillis));
     	config.setTestWhileIdle(Boolean.parseBoolean(testWhileIdle));
     	config.setNumTestsPerEvictionRun(Integer.parseInt(numTestsPerEvictionRun));
-    	pool = new JedisPool(config, ip, Integer.parseInt(port));
+    	JedisPool pool = new JedisPool(config, ip, Integer.parseInt(port));
     	return pool;
 	}
 }
