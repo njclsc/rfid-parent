@@ -25,6 +25,8 @@ public class RedisDataSource {
 	private String testOnBorrow;
 	@Value("${redis.pool.testOnReturn}")
 	private String testOnReturn;
+	@Value("${redis.pool.testOnCreate}")
+	private String testOnCreate;
 	@Value("${redis.pool.timeBetweenEvictionRunsMillis}")
 	private String timeBetweenEvictionRunsMillis;
 	@Value("${redis.pool.testWhileIdle}")
@@ -40,6 +42,7 @@ public class RedisDataSource {
     	config.setMaxWaitMillis(Long.parseLong(maxWaitMillis));
     	config.setTestOnBorrow(Boolean.parseBoolean(testOnBorrow));
     	config.setTestOnReturn(Boolean.parseBoolean(testOnReturn));
+    	config.setTestOnCreate(Boolean.parseBoolean(testOnCreate));
     	config.setTimeBetweenEvictionRunsMillis(Long.parseLong(timeBetweenEvictionRunsMillis));
     	config.setTestWhileIdle(Boolean.parseBoolean(testWhileIdle));
     	config.setNumTestsPerEvictionRun(Integer.parseInt(numTestsPerEvictionRun));

@@ -28,7 +28,7 @@ public class LoginProxy {
 	
 	@Around("point()")
 	public Object around(ProceedingJoinPoint pjp){
-		System.out.println(jedis);
+//		System.out.println(jedis);
 		Object object = null;
 		try {
 			object = pjp.proceed();
@@ -36,9 +36,9 @@ public class LoginProxy {
 			String methodName = signutare.getName();
 			if(methodName.equals("loginCheck") && JSONObject.parseObject((String)object).get("status").equals("success")){
 				HttpServletRequest req = (HttpServletRequest) pjp.getArgs()[0];
-				String name = req.getParameter("name");
+//				String name = req.getParameter("name");
 				Jedis jds = jedis.getResource();
-				jds.set("login->" + name, "true");
+				jds.set(req.getSession().getId(), "true");
 				jds.close();
 			}
 		} catch (Throwable e) {

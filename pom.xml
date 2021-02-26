@@ -95,5 +95,6 @@
 	</dependencyManagement>
 	<modules>
 		<module>rfid-login</module>
+		<module>rfid-log</module>
 	</modules>
 </project>
