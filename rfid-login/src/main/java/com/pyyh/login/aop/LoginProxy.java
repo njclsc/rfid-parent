@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pyyh.login.aop.service.ILogService;
 import com.pyyh.login.pojo.PostMessagePojo;
+import com.pyyh.login.pojo.UserPojo;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -20,6 +22,9 @@ import redis.clients.jedis.JedisPool;
 @Aspect
 @Component
 public class LoginProxy {
+	@Autowired
+//	@Qualifier("LogServiceImp")
+	private ILogService ils;
 	@Autowired
 	@Qualifier("redisSource")
 	private JedisPool jedis;
@@ -45,6 +50,10 @@ public class LoginProxy {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			PostMessagePojo pmp = new PostMessagePojo();
+			UserPojo up = new UserPojo();
+			up.setName("皮油一火");
+			up.setPassword("123321");
+			ils.callLog2(up.getName(), up.getPassword());
 			pmp.setOperate("loginCheck");
 			pmp.setStatus("fail");
 			pmp.setMessage("登录验证失败");

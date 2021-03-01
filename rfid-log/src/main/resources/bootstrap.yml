@@ -1,0 +1,12 @@
+server:
+  port: 9020
+  servlet:
+    context-path: /log-server
+spring:
+  application:
+    name: log-server
+  cloud:
+    nacos:
+      discovery:
+        namespace: ffcc2fd0-1368-4894-a0a4-ebc867721e7e
+        server-addr: 192.168.4.109:8848
